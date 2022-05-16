@@ -1,1 +1,2 @@
-***************************
+kubia-rc.yaml uses Replication Controller to replictae the pods
+kubia-replicaset.yaml uses ReplicaSet to replicate the pods. In addiiton, it uses matchLabels to mark the pods associated with kubia Replicaset
