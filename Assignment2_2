@@ -1,1 +1,10 @@
+[root@ip-172-31-19-119 04-controllers]# kubectl create -f cronjob.yaml
+cronjob.batch/batch-job-every-fifteen-minutes created
+[root@ip-172-31-19-119 04-controllers]# kubectl get cj
+NAME                              SCHEDULE             SUSPEND   ACTIVE   LAST SCHEDULE   AGE
+batch-job-every-fifteen-minutes   0,15,30,45 * * * *   False     0        <none>          71s
+[root@ip-172-31-19-119 04-controllers]# kubectl get cj -A
+NAMESPACE   NAME                              SCHEDULE             SUSPEND   ACTIVE   LAST SCHEDULE   AGE
+pankaj      batch-job-every-fifteen-minutes   0,15,30,45 * * * *   False     0        <none>          87s
+pse         batch-job-every-fifteen-minutes   0,15,30,45 * * * *   True      0        46h             46h
 
