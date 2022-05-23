@@ -1,0 +1,41 @@
+Qusetion 1
+
+Ans: Replicaset will create multiple pods but 
+All places where we need to have one pod per node, we shall use daemon Set
+---------------------------------------------------------
+
+Qusetion 2:  Suppose you have deployed your application using a deployment controller. Assume the initial number 
+of replicas is one. Write the steps needed to update a container's image using deployment, making sure that there is zero downtime
+
+Ans: Increase number of replicas using kubectl scale deploy application --replicas=2 
+
+------------------------------------------------------
+
+Question 3:  You have deployed an application, that is listening at port 8000. 
+You used a replica-set to deploy it and created a NodePort service to make it accessible.
+But when you test it, somehow the application is not reachable at the port. 
+Write down your approach and sequentially all the steps that you will take to find out the issue
+
+Ans: 
+1. check the networking 
+2. check that pod is functional
+3. Check the port in yaml file
+4. Check the application code
+
+-------------------------------------------------
+Voting App
+
+8. Now try to delete the Pods one by one (first voting Pod, then worker pod, then db pod) and see what happens to the voting and result app after deleting.
+Ans - 
+1. On deleting voting pod, one voting pod gets deleted and new voting pod comes up because of replicaset. Application does not get impacted 
+2. When we delete db pod, the result does not update or changes. For new dB scenarios, old data is lost and socket connection is lost between result pod and db
+3. when we delete the worker pod, the connection between voting pod and result pod breaks. 
+
+
+
+
+
+
+
+
+
